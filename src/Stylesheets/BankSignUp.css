@@ -1,0 +1,51 @@
+/* BankSignUp.css */
+.signup-bg {
+  background: linear-gradient(135deg, #6c00a5, #b92b81);
+  min-height: 130vh;
+  min-width: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-card {
+  width: 25rem;
+  padding: 20px;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.signup-gradient-text {
+  background: linear-gradient(135deg, #6c00a5, #b92b81);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signup-icon-background {
+  background-color: #fff;
+  border-radius: 10px 0 0 10px;
+}
+
+.signup-icon-color {
+  color: #b92b81;
+  background-color: white;
+}
+
+.signup-input-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-login-navigate {
+  cursor: pointer;
+  color: #b92b81;
+  text-decoration: none;
+}
+
+.signup-login-navigate:hover {
+  text-decoration: underline;
+}
+
+.signup-button {
+  background: linear-gradient(135deg, #6c00a5, #b92b81);
+}
