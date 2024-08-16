@@ -1,64 +1,38 @@
-import React from "react";
-import {
-  Container,
-  Form,
-  Row,
-  Col,
-  Card,
-  Button,
-  InputGroup,
-} from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { FaEnvelope, FaLock } from "react-icons/fa";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import "../Stylesheets/BankLogin.css";
 
-const InputField = ({ type, placeholder, icon: Icon }) => (
-  <Form.Group className="my-4">
-    <InputGroup>
-      <InputGroup.Text className="login-icon-background">
-        <Icon className="login-icon-color" />
-      </InputGroup.Text>
-      <Form.Control
-        type={type}
-        placeholder={placeholder}
-        className="login-input-shadow"
-      />
-    </InputGroup>
-  </Form.Group>
-);
-
-const RememberMeAndForgotPassword = () => (
-  <Row className="mb-3">
-    <Col>
-      <Form.Check type="checkbox" label="Remember Me" />
-    </Col>
-    <Col className="text-end">
-      <span className="login-forgot-password">Forgot Password?</span>
-    </Col>
-  </Row>
-);
-
-const BankLogin = () => {
-  const navigate = useNavigate();
-
+function Login() {
   return (
-    <Container fluid className="login-bg">
-      <Card className="login-card">
-        <Card.Body>
-          <h3 className="text-center login-gradient-text my-5">USER LOGIN</h3>
-          <Form className="align-items-center">
-            <InputField type="email" placeholder="Email" icon={FaEnvelope} />
-            <InputField type="password" placeholder="Password" icon={FaLock} />
-            <RememberMeAndForgotPassword />
-            <Button variant="primary" type="submit" className="my-3 w-100 login-button">
-              Login
-            </Button>
-            <p className="text-center">Don't have an account? <span className="login-forgot-password" onClick={() => navigate("/signup")}>Register Here</span></p>
-          </Form>
-        </Card.Body>
-      </Card>
-    </Container>
+    <div className="login-container">
+      <div className="login-box">
+        <h2>USER LOGIN</h2>
+        <form>
+          <div className="login-input-group">
+            <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div className="login-input-group">
+            <FontAwesomeIcon icon={faLock} className="input-icon" />
+            <input type="password" placeholder="Password" required />
+          </div>
+          <div className="login-options">
+            <div>
+              <input type="checkbox" id="remember" />
+              <label htmlFor="remember">Remember Me</label>
+            </div>
+            <Link to="#">Forgot Password?</Link>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <p>
+          Don't have an account? <Link to="#">Register Here</Link>
+        </p>
+      </div>
+    </div>
   );
-};
+}
 
-export default BankLogin;
+export default Login;
