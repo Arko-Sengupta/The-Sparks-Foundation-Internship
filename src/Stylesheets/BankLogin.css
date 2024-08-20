@@ -3,6 +3,7 @@
 .login-container {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to bottom, #8e2de2, #4a00e0);
@@ -17,7 +18,6 @@
 .login-container p a {
   color: #8e2de2;
   text-decoration: none;
-  cursor: pointer;
 }
 
 .login-container p a:hover {
@@ -31,8 +31,7 @@
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 450px;
-  height: 450px;
+  width: 400px;
 }
 
 .login-box h2 {
@@ -43,19 +42,12 @@
 .login-input-group {
   position: relative;
   margin-bottom: 15px;
-  text-align: left;
-}
-
-.login-input-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #6f42c1;
 }
 
 .login-input-group input {
   padding: 10px;
   padding-left: 30px;
-  width: 390px;
+  width: 100%;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -78,13 +70,18 @@
 }
 
 .login-options label {
+  display: flex;
+  align-items: center;
   margin-left: 5px;
+}
+
+.login-options input[type="checkbox"] {
+  margin-right: 8px;
 }
 
 .login-options a {
   color: #8024E2;
   text-decoration: none;
-  cursor: pointer;
 }
 
 .login-options a:hover {
@@ -105,4 +102,38 @@
 
 .login-box button:hover {
   background: linear-gradient(to right, #6f42c1, #4a00e0);
+}
+
+.login-back-to-home {
+  margin-top: 20px;
+  font-size: medium;
+  text-align: center;
+}
+
+.login-back-to-home a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.login-back-to-home a:hover {
+  color: rgb(186, 181, 181);
+  text-decoration: underline;
+}
+
+.login-arrow-icon {
+  margin-right: 8px;
+}
+
+/* Responsive CSS */
+
+@media (max-width: 420px) {
+  .login-box {
+    width: 320px;
+  }
+
+  .login-input-group input {
+    width: 100%;
+  }
 }

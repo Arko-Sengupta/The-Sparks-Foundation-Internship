@@ -1,24 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "../Stylesheets/BankHome.css";
 
-const Home =  () => {
-  return (
-    <div className="home-container">
-      <div className="home-main-content">
-        <h1>Welcome to The Sparks Foundation Bank</h1>
-        <p>
-          Your Gateway to Financial Innovation and Empowerment
-        </p>
-        <div className="home-button-section">
+const Home = () => (
+  <div className="home-container">
+    <main className="home-content">
+      <h1>Welcome to The Sparks Foundation Bank</h1>
+      <p>Your Gateway to Financial Innovation and Empowerment</p>
+      <div className="home-buttons">
+        <Link to="/login">
           <button>LOGIN</button>
+        </Link>
+        <Link to="/signup">
           <button>SIGNUP</button>
-        </div>
+        </Link>
       </div>
-      <div className="home-footer">
-        <span>Copyright © 2022 | Developed by The Sparks Foundation Bank</span>
-      </div>
-    </div>
-  );
-}
+    </main>
+    <footer className="home-footer">
+      <span>Copyright © 2022 | Developed by The Sparks Foundation Bank</span>
+    </footer>
+  </div>
+);
 
 export default Home;
