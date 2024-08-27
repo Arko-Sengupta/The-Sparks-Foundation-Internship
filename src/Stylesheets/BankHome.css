@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
 
 /* Bank Home CSS */
 
 .home-container {
   text-align: center;
-  background: linear-gradient(to bottom, #8e2de2, #4a00e0);
+  background: #f29f05;
   color: white;
   height: 100vh;
   display: flex;
@@ -26,12 +26,41 @@
   font-size: 50px;
   margin-bottom: 20px;
   font-family: "Bona Nova SC", serif;
+  color: black;
 }
 
 .home-content p {
   font-size: 25px;
   margin-bottom: 30px;
   font-family: "Bona Nova SC", serif;
+  color: black;
+}
+
+.home-typing-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.home-typing-dot {
+  display: inline-block;
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #000;
+  animation: blink 0.6s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .home-buttons {
@@ -43,7 +72,7 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background: linear-gradient(135deg, #00cc66, #00994c);
+  background: black;
   color: white;
   font-size: 14px;
   cursor: pointer;
@@ -51,7 +80,7 @@
 }
 
 .home-buttons button:hover {
-  background: linear-gradient(135deg, #00b359, #008c44);
+  background: rgb(35, 35, 35);
 }
 
 .home-footer {
@@ -59,9 +88,10 @@
 }
 
 .home-footer span {
-  color: white;
+  color: black;
   font-size: 16px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Bona Nova SC", serif;
+  font-weight: 500;
 }
 
 /* Responsive CSS */

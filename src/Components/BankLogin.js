@@ -19,7 +19,7 @@ const Login = () => (
         </div>
         <div className="login-options">
           <label>
-            <input type="checkbox" id="remember" />
+            <input type="checkbox" />
             Remember Me
           </label>
           <Link to="#">Forgot Password?</Link>
@@ -27,10 +27,10 @@ const Login = () => (
         <button type="submit">Login</button>
       </form>
       <p>
-        Don't have an account? <Link to="#">Register Here</Link>
+        Don't have an account? <Link to="/signup">Register Here</Link>
       </p>
     </div>
-    <div className="login-back-to-home">
+    <div className="login-back-to-home login-underline-expand">
       <Link to="/">
         <FontAwesomeIcon icon={faArrowLeft} className="login-arrow-icon" />
         Back to Home

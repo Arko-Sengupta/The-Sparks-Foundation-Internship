@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@400;700&display=swap");
+
 /* BankLogin CSS */
 
 .login-container {
@@ -6,37 +8,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #8e2de2, #4a00e0);
-}
-
-.login-container p {
-  margin-top: 10px;
-  color: #6c757d;
-  font-size: medium;
-}
-
-.login-container p a {
-  color: #8e2de2;
-  text-decoration: none;
-}
-
-.login-container p a:hover {
-  color: #4a00e0;
-  text-decoration: underline;
+  background: #f29f05;
 }
 
 .login-box {
   background: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
   text-align: center;
   width: 400px;
-}
-
-.login-box h2 {
-  margin-bottom: 50px;
-  color: #6f42c1;
 }
 
 .login-input-group {
@@ -58,7 +39,7 @@
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: #6f66f7;
+  color: black;
 }
 
 .login-options {
@@ -69,39 +50,51 @@
   font-size: medium;
 }
 
-.login-options label {
-  display: flex;
-  align-items: center;
-  margin-left: 5px;
-}
-
 .login-options input[type="checkbox"] {
   margin-right: 8px;
 }
 
 .login-options a {
-  color: #8024E2;
+  color: black;
   text-decoration: none;
 }
 
 .login-options a:hover {
-  color: #4a00e0;
-  text-decoration: underline;
+  color: #f29f05;
+  text-decoration: none;
+}
+
+.login-box h2 {
+  font-family: "Bona Nova SC", serif;
+  margin-bottom: 50px;
+  color: black;
+}
+
+.login-box p a {
+  color: black;
+  text-decoration: none;
+}
+
+.login-box p a:hover {
+  color: black;
+  text-decoration: none;
+  color: #f29f05;
 }
 
 .login-box button {
   width: 100%;
   padding: 10px;
-  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  background: black;
   border: none;
   border-radius: 5px;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .login-box button:hover {
-  background: linear-gradient(to right, #6f42c1, #4a00e0);
+  background: rgb(35, 35, 35);
 }
 
 .login-back-to-home {
@@ -111,19 +104,44 @@
 }
 
 .login-back-to-home a {
-  color: white;
+  color: black;
   text-decoration: none;
   display: flex;
   align-items: center;
+  font-family: "Bona Nova SC", serif;
+  font-size: 15px;
 }
 
 .login-back-to-home a:hover {
-  color: rgb(186, 181, 181);
-  text-decoration: underline;
+  color: rgb(35, 35, 35);
 }
 
 .login-arrow-icon {
   margin-right: 8px;
+  color: black;
+}
+
+.login-underline-expand {
+  position: relative;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+}
+
+.login-underline-expand::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background-color: black;
+  bottom: 0;
+  left: 50%;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.login-underline-expand:hover::after {
+  width: 100px;
+  left: calc(43% - 30px);
 }
 
 /* Responsive CSS */
@@ -131,9 +149,5 @@
 @media (max-width: 420px) {
   .login-box {
     width: 320px;
-  }
-
-  .login-input-group input {
-    width: 100%;
   }
 }

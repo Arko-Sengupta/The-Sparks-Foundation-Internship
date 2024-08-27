@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@400;700&display=swap");
+
+/* BankSignup CSS */
+
+.signup-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f29f05;
+}
+
+.signup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  width: 450px;
+}
+
+.signup-input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.signup-input-group input {
+  padding: 10px;
+  padding-left: 30px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.signup-input-group .input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+}
+
+.signup-box h2 {
+  font-family: "Bona Nova SC", serif;
+  margin-bottom: 50px;
+  color: black;
+}
+
+.signup-box a {
+  color: black;
+  text-decoration: none;
+}
+
+.signup-box p a:hover {
+  color: #f29f05;
+  text-decoration: none;
+}
+
+.signup-box button {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.signup-box button:hover {
+  background: rgb(35, 35, 35);
+}
+
+.signup-back-to-home {
+  margin-top: 20px;
+  font-size: medium;
+  text-align: center;
+}
+
+.signup-back-to-home a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-family: "Bona Nova SC", serif;
+  font-size: 15px;
+}
+
+.signup-back-to-home a:hover {
+  color: rgb(35, 35, 35);
+}
+
+.signup-arrow-icon {
+  margin-right: 8px;
+  color: black;
+}
+
+.signup-underline-expand {
+  position: relative;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+}
+
+.signup-underline-expand::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background-color: black;
+  bottom: 0;
+  left: 50%;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.signup-underline-expand:hover::after {
+  width: 100px;
+  left: calc(43% - 30px);
+}
+
+/* Responsive CSS */
+
+@media (max-width: 460px) {
+  .signup-box {
+    width: 360px;
+  }
+}
+
+@media (max-width: 375px) {
+  .signup-box {
+    width: 320px;
+  }
+}
