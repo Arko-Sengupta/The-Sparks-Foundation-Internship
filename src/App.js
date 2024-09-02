@@ -4,14 +4,16 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BankHome from "./Components/BankHome";
 import BankLogin from "./Components/BankLogin";
 import BankSignUp from "./Components/BankSignUp";
+import UserDashboard from "./Components/BankDashboard";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<BankHome />} />
-        <Route exact path="/login" element={<BankLogin />} />
-        <Route exact path="/signup" element={<BankSignUp />} />
+        <Route path="/" element={<BankHome />} />
+        <Route path="/login" element={<BankLogin />} />
+        <Route path="/signup" element={<BankSignUp />} />
+        <Route path="/userdashboard/*" element={<UserDashboard />} />
       </Routes>
     </Router>
   );

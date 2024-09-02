@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@400;700&display=swap");
+
+/* Navbar Web Style */
+
+.navbar {
+  height: 80px;
+  padding: 10px 20px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar-menu {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navbar-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navbar-item {
+  margin: 0 50px;
+  position: relative;
+}
+
+.navbar-item a {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-item a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: #f29f05;
+  transition: width 0.6s ease, left 0.6s ease;
+  transform: translateX(0%);
+}
+
+.navbar-item a:hover::after {
+  width: 85%;
+  left: 15%;
+}
+
+.navbar-item a:hover {
+  color: #f29f05;
+}
+
+.navbar-icon {
+  margin-right: 5px;
+}
+
+/* Navbar Toggler */
+
+.navbar-toggler {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Navbar Mobile Style */
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  background-color: #171717;
+  position: fixed;
+  display: flex;
+  transition: right 0.3s ease-in-out;
+  flex-direction: column;
+  align-items: flex-start;
+  top: 0;
+  right: -250px;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar-hamburger-line {
+  width: 25px;
+  height: 3px;
+  margin-top: 3px;
+  background: white;
+  border-radius: 3px;
+}
+
+.sidebar-close-btn {
+  font-size: 24px;
+  color: #ffffff;
+  background: none;
+  border: none;
+  margin-bottom: 20px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+/* Navbar Right Sidebar Style */
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  margin: 15px 10px;
+}
+
+.sidebar-item a {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Navbar Hide */
+
+.navbar-menu.hidden {
+  display: none;
+}
+
+/* Navbar Responsive Style */
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-toggler {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+/* Content Style */
+
+.content {
+  padding-top: 8%;
+  padding-inline: 20px;
+  background-color: #f29f05;
+  height: 100vh;
+}
+
+/* Account Info Style */
+
+.account-info {
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.account-info h2 {
+  padding-block: 15px;
+  font-family: "Bona Nova SC", serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.account-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-info-item {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.account-info-item label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.account-info-item label svg {
+  margin-right: 8px;
+}
+
+.account-info-item .account-info-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account-info-item .account-info-display p {
+  width: calc(100% - 30px);
+  padding: 10px;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.account-info-item input {
+  padding: 10px;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: calc(100% - 30px);
+}
+
+.account-icon {
+  margin-right: 15px;
+}
+
+.account-info-item .account-edit-icon {
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.account-save-button {
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 20px;
+  color: white;
+  background-color: black;
+  font-size: 16px;
+  display: block;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.account-save-button:hover {
+  background-color: rgb(35, 35, 35);
+}
+
+/* Account Info Responsive Style */
+
+@media (max-width: 450px) {
+  .account-info h2 {
+    font-size: 25px;
+  }
+}

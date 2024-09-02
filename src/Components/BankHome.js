@@ -25,24 +25,26 @@ const TypingText = ({ text, speed = 100 }) => {
   );
 };
 
-const Home = () => (
-  <div className="home-container">
-    <main className="home-content">
-      <h1><TypingText text={"Welcome to The Sparks Foundation Bank"} speed={50} /></h1>
-      <p><TypingText text={"Your Gateway to Financial Innovation and Empowerment"} speed={50} /></p>
-      <div className="home-buttons">
-        <Link to="/login">
-          <button>LOGIN</button>
-        </Link>
-        <Link to="/signup">
-          <button>SIGNUP</button>
-        </Link>
-      </div>
-    </main>
-    <footer className="home-footer">
-      <span>Copyright © 2022 | Developed by The Sparks Foundation Bank</span>
-    </footer>
-  </div>
-);
+const Home = () => {
+  return (
+    <div className="home-container">
+      <main className="home-content">
+        <h1><TypingText text={"Welcome to The Sparks Foundation Bank"} speed={50} /></h1>
+        <p><TypingText text={"Your Gateway to Financial Innovation and Empowerment"} speed={50} /></p>
+        <div className="home-buttons">
+          <Link to="/login">
+            <button>LOGIN</button>
+          </Link>
+          <Link to="/signup">
+            <button>SIGNUP</button>
+          </Link>
+        </div>
+      </main>
+      <footer className="home-footer">
+        <span>Copyright © 2022 | Developed by The Sparks Foundation Bank</span>
+      </footer>
+    </div>
+  );
+}
 
 export default Home;
