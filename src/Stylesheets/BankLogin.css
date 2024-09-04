@@ -42,6 +42,16 @@
   color: black;
 }
 
+.login-toggle-password-icon {
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+  position: absolute;
+  margin-right: 10px;
+  margin-top: 15px;
+  right: 0;
+}
+
 .login-options {
   display: flex;
   justify-content: space-between;
@@ -129,7 +139,7 @@
 }
 
 .login-underline-expand::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 1px;

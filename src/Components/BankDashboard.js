@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faHistory, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope, faPhone, faIdCard, faLock, faPen, faSave } from '@fortawesome/free-solid-svg-icons';
+import {
+    faEnvelope, faPhone, faIdCard, faLock, faPencilAlt, faSave, faEye, faEyeSlash,
+    faUniversity, faCashRegister, faIndianRupee, faBank
+} from '@fortawesome/free-solid-svg-icons';
 import "../Stylesheets/BankDashboard.css";
 
 const Navbar = () => {
@@ -13,7 +16,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar">
+        <nav className="navbar" style={{ position: "fixed" }}>
             <div className={`navbar-menu ${isOpen ? 'hidden' : ''}`}>
                 <ul className="navbar-items">
                     <li className="navbar-item"><Link to="account"><FontAwesomeIcon icon={faUser} className="navbar-icon" /> Account Info</Link></li>
@@ -40,89 +43,203 @@ const Navbar = () => {
     );
 };
 
-
 const AccountInfo = () => {
-    const [isEditing, setIsEditing] = useState(null);
-    const [accountData, setAccountData] = useState({
-        "Full Name": "John Doe",
-        "Email": "john.doe@example.com",
-        "Phone": "+1234567890",
-        "PAN Number": "ABCDE1234F",
-        "Password": "John@1234"
+    const [formData, setFormData] = useState({
+        "Full Name": '',
+        "Email": '',
+        "Phone": '',
+        "Address": '',
     });
-    const [editedData, setEditedData] = useState({});
 
-    const handleEditClick = (field) => {
-        setIsEditing(field);
-        setEditedData({ [field]: '' });
-    };
+    const [editableField, setEditableField] = useState(null);
+    const [showPassword, setShowPassword] = useState(true);
 
-    const handleSaveClick = () => {
-        setAccountData({
-            ...accountData,
-            ...editedData
-        });
-        setIsEditing(null);
-        setEditedData({});
-    };
+    useEffect(() => {
+        const fetchData = () => {
+            return {
+                "Full Name": "John Doe",
+                "Email": "john.doe@example.com",
+                "Phone": "1234567890",
+                "PAN Number": "ABCDE1234F",
+                "Password": "John@1234"
+            };
+        };
+
+        const initialData = fetchData();
+        setFormData(initialData);
+    }, []);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setEditedData({
-            ...editedData,
-            [name]: value
-        });
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleEdit = (field) => {
+        setEditableField(field);
+    };
+
+    const handleSave = () => {
+        console.log('Data saved:', formData);
+        setEditableField(null);
+    };
+
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+
+    const getIconForField = (fieldName) => {
+        switch (fieldName) {
+            case 'Full Name': return faUser;
+            case 'Email': return faEnvelope;
+            case 'Phone': return faPhone;
+            case 'PAN Number': return faIdCard;
+            case 'Password': return faLock;
+            default: return null;
+        }
     };
 
     return (
-        <div className="account-info">
+        <div className="account-form-container">
             <h2>Account Information</h2>
-            <div className="account-info-container">
-                {Object.keys(accountData).map((field, index) => (
-                    <div className="account-info-item" key={index}>
-                        {isEditing === field ? (
-                            <>
-                                <input
-                                    type={field === 'Password' ? 'password' : 'text'}
-                                    id={field}
-                                    name={field}
-                                    value={editedData[field] || ''}
-                                    onChange={handleChange}
-                                />
-                            </>
-                        ) : (
-                            <div className="account-info-display">
-                                <p>
-                                    <FontAwesomeIcon icon={
-                                        field === 'Full Name' ? faUser :
-                                            field === 'Email' ? faEnvelope :
-                                                field === 'Phone' ? faPhone :
-                                                    field === 'PAN Number' ? faIdCard :
-                                                        faLock
-                                    } className="account-icon" />
-                                    {accountData[field]}
-                                </p>
-                                <FontAwesomeIcon
-                                    icon={faPen}
-                                    className="account-edit-icon"
-                                    onClick={() => handleEditClick(field)}
-                                />
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
-            {isEditing && (
-                <button className="account-save-button" onClick={handleSaveClick}>
-                    <FontAwesomeIcon icon={faSave} /> Save
-                </button>
-            )}
+            {Object.keys(formData).map((field, index) => (
+                <div key={index} className="account-input-group">
+                    <FontAwesomeIcon icon={getIconForField(field)} className="account-field-icon" />
+                    <input
+                        type={field === 'Password' && showPassword ? 'password' : 'text'}
+                        name={field}
+                        value={formData[field]}
+                        onChange={handleChange}
+                        disabled={editableField !== field}
+                        className="account-input-field"
+                    />
+                    {field === 'Password' ? (
+                        <FontAwesomeIcon
+                            icon={showPassword ? faEyeSlash : faEye}
+                            className="account-toggle-password-icon"
+                            onClick={toggleShowPassword}
+                        />
+                    ) : (null)}
+                    <FontAwesomeIcon
+                        icon={faPencilAlt}
+                        className="account-edit-icon"
+                        onClick={() => handleEdit(field)}
+                    />
+                </div>
+            ))}
+            <button className="account-save-button" onClick={handleSave}>
+                <FontAwesomeIcon icon={faSave} /> Save
+            </button>
         </div>
     );
 };
 
-const TransactionHistory = () => <div>Transaction History Content</div>;
-const InitiateTransaction = () => <div>Initiate Transaction Content</div>;
+const TransactionHistory = () => <div>Transaction History</div>;
+
+const InitiateTransaction = () => {
+    const [formData, setFormData] = useState({
+        "BeneficiaryName": '',
+        "BankName": '',
+        "PANNumber": '',
+        "TransactionCategory": '',
+        "TransactionAmount": '',
+    });
+
+    const banks = ['Bank A', 'Bank B', 'Bank C'];
+    const transactionCategories = ['IMPS', 'RTGS', 'NEFT'];
+
+    const formFields = [
+        {
+            label: 'Beneficiary Name',
+            name: 'BeneficiaryName',
+            type: 'text',
+            icon: faUser
+        },
+        {
+            label: 'Bank Name',
+            name: 'BankName',
+            type: 'select',
+            options: banks,
+            icon: faUniversity
+        },
+        {
+            label: 'PAN Number',
+            name: 'PANNumber',
+            type: 'text',
+            icon: faIdCard
+        },
+        {
+            label: 'Transaction Category',
+            name: 'TransactionCategory',
+            type: 'select',
+            options: transactionCategories,
+            icon: faCashRegister
+        },
+        {
+            label: 'Transaction Amount',
+            name: 'TransactionAmount',
+            type: 'number',
+            min: 1,
+            icon: faIndianRupee
+        },
+    ];
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'TransactionAmount' && value && (!/^\d+$/.test(value) || value <= 0)) {
+            return;
+        }
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form data submitted:', formData);
+    };
+
+    return (
+        <form onSubmit={handleSubmit} className="initiate-transaction-form">
+            <h2>Initiate Transaction</h2>
+            {formFields.map((field, index) => (
+                <div key={index} className="initiate-transaction-form-group">
+                    <label>{field.label}</label>
+                    <div className='initiate-transaction-input-with-icon'>
+                        <FontAwesomeIcon icon={field.icon} className="initiate-transaction-input-icon" />
+                        {field.type === 'select' ? (
+                            <select
+                                name={field.name}
+                                value={formData[field.name]}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select {field.label}</option>
+                                {field.options.map((option, idx) => (
+                                    <option key={idx} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+                        ) : (
+                            <input
+                                type={field.type}
+                                name={field.name}
+                                value={formData[field.name]}
+                                onChange={handleChange}
+                                min={field.min}
+                                required
+                            />
+                        )}
+                    </div>
+                </div>
+            ))}
+
+            <button type="submit" className="initiate-transaction-submit-button">
+                <FontAwesomeIcon icon={faBank} className="button-icon" />Initiate Transaction
+            </button>
+        </form>
+    );
+};
 
 const UserDashboard = () => {
     return (
@@ -130,10 +247,10 @@ const UserDashboard = () => {
             <Navbar />
             <div className="content">
                 <Routes>
-                    <Route path="/" element={<AccountInfo />} />
-                    <Route path="account" element={<AccountInfo />} />
-                    <Route path="history" element={<TransactionHistory />} />
-                    <Route path="transaction" element={<InitiateTransaction />} />
+                    <Route exact path="/" element={<AccountInfo />} />
+                    <Route exact path="account" element={<AccountInfo />} />
+                    <Route exact path="history" element={<TransactionHistory />} />
+                    <Route exact path="transaction" element={<InitiateTransaction />} />
                 </Routes>
             </div>
         </>

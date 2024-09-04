@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faArrowLeft, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import "../Stylesheets/BankLogin.css";
 
 const useHandleSubmit = () => {
@@ -30,7 +30,12 @@ const useHandleSubmit = () => {
 };
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(true);
   const handleSubmit = useHandleSubmit();
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className="login-container">
@@ -43,7 +48,12 @@ const Login = () => {
           </div>
           <div className="login-input-group">
             <FontAwesomeIcon icon={faLock} className="input-icon" />
-            <input type="password" name="password" placeholder="Password" required />
+            <input type={showPassword ? 'password' : 'text'} name="password" placeholder="Password" required />
+            <FontAwesomeIcon
+              icon={showPassword ? faEyeSlash : faEye}
+              className="login-toggle-password-icon"
+              onClick={toggleShowPassword}
+            />
           </div>
           <div className="login-options">
             <label>

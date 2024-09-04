@@ -4,13 +4,15 @@
 /* Navbar Web Style */
 
 .navbar {
+  width: 100%;
   height: 80px;
   padding: 10px 20px;
   background-color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  z-index: 1000;
 }
 
 .navbar-menu {
@@ -32,12 +34,11 @@
 }
 
 .navbar-item a {
-  font-size: 12px;
+  font-size: 15px;
   color: #ffffff;
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   text-decoration: none;
-  text-transform: uppercase;
   position: relative;
   overflow: hidden;
 }
@@ -134,7 +135,6 @@
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 /* Navbar Hide */
@@ -160,25 +160,26 @@
 /* Content Style */
 
 .content {
-  padding-top: 8%;
+  min-height: 100vh;
+  padding-top: 150px;
+  padding-bottom: 6%;
   padding-inline: 20px;
   background-color: #f29f05;
-  height: 100vh;
+  height: fit-content;
 }
 
 /* Account Info Style */
 
-.account-info {
-  max-width: 600px;
+.account-form-container {
+  max-width: 500px;
   padding: 20px;
   margin: 0 auto;
   background-color: #f9f9f9;
-  border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
-.account-info h2 {
+.account-form-container h2 {
   padding-block: 15px;
   font-family: "Bona Nova SC", serif;
   font-size: 30px;
@@ -186,80 +187,165 @@
   text-align: center;
 }
 
-.account-info-container {
+.account-input-group {
   display: flex;
-  flex-direction: column;
-}
-
-.account-info-item {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  align-items: center;
   position: relative;
 }
 
-.account-info-item label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
-.account-info-item label svg {
-  margin-right: 8px;
-}
-
-.account-info-item .account-info-display {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.account-info-item .account-info-display p {
-  width: calc(100% - 30px);
-  padding: 10px;
-  margin: 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.account-info-item input {
-  padding: 10px;
-  margin: 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: calc(100% - 30px);
-}
-
-.account-icon {
-  margin-right: 15px;
-}
-
-.account-info-item .account-edit-icon {
+.account-field-icon {
+  margin-top: 15px;
+  margin-right: 10px;
   color: black;
-  font-size: 15px;
+  font-size: 18px;
+}
+
+.account-input-field {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.account-toggle-password-icon {
+  margin-top: 10px;
+  margin-right: 45px;
+  color: black;
+  font-size: 18px;
+  position: absolute;
   cursor: pointer;
+  right: 0;
+}
+
+.account-edit-icon {
+  margin-top: 15px;
+  color: black;
+  font-size: 18px;
+  position: absolute;
+  cursor: pointer;
+  right: 0;
 }
 
 .account-save-button {
   width: 100%;
-  padding: 10px 20px;
-  margin-top: 20px;
+  padding: 10px;
+  font-family: "Bona Nova SC", serif;
+  font-size: 16px;
   color: white;
   background-color: black;
-  font-size: 16px;
-  display: block;
-  border: none;
   border-radius: 4px;
+  border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .account-save-button:hover {
   background-color: rgb(35, 35, 35);
 }
 
-/* Account Info Responsive Style */
+/* Initiate Transaction Style */
 
-@media (max-width: 450px) {
-  .account-info h2 {
-    font-size: 25px;
-  }
+.initiate-transaction-form {
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.initiate-transaction-form h2 {
+  padding-block: 15px;
+  font-family: "Bona Nova SC", serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.initiate-transaction-form-group {
+  margin-bottom: 15px;
+}
+
+.initiate-transaction-form-group label {
+  margin-bottom: 5px;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+  display: block;
+}
+
+.initiate-transaction-input-with-icon {
+  display: flex;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  align-items: center;
+  transition: border-color 0.3s ease;
+}
+
+.initiate-transaction-input-with-icon .initiate-transaction-input-icon {
+  color: black;
+  margin-right: 10px;
+}
+
+.initiate-transaction-input-with-icon input,
+.initiate-transaction-input-with-icon select {
+  flex: 1;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+
+.initiate-transaction-input-with-icon input:focus,
+.initiate-transaction-input-with-icon select:focus {
+  border-color: black;
+}
+
+.initiate-transaction-form-group input[type="text"],
+.initiate-transaction-form-group input[type="number"],
+.initiate-transaction-form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.initiate-transaction-form-group input[type="text"]:focus,
+.initiate-transaction-form-group input[type="number"]:focus,
+.initiate-transaction-form-group select:focus {
+  border-color: black;
+  outline: none;
+}
+
+.initiate-transaction-submit-button {
+  width: 100%;
+  padding: 10px;
+  font-family: "Bona Nova SC", serif;
+  font-size: 16px;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.initiate-transaction-submit-button .button-icon {
+  margin-right: 8px;
+}
+
+.initiate-transaction-submit-button:hover {
+  background-color: rgb(35, 35, 35);
 }
