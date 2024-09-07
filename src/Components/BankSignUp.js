@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock, faPhone, faIdCard, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import "../Stylesheets/BankSignUp.css";
+import logo from "../Utils/TSF Logo.png";
 
 const SignUp = () => {
     return (
         <div className="signup-container">
             <div className="signup-box">
+                <div className="signup-img-container">
+                    <img alt="logo" src={logo} />
+                </div>
                 <h2>USER SIGNUP</h2>
                 <form>
                     <div className="signup-input-group">

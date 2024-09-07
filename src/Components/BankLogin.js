@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faArrowLeft, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import "../Stylesheets/BankLogin.css";
+import logo from "../Utils/TSF Logo.png";
 
 const useHandleSubmit = () => {
   const navigate = useNavigate();
@@ -40,6 +41,9 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-box">
+        <div className="login-img-container">
+          <img alt="logo" src={logo} />
+        </div>
         <h2>USER LOGIN</h2>
         <form onSubmit={handleSubmit}>
           <div className="login-input-group">

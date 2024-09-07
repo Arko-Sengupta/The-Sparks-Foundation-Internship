@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "../Stylesheets/BankHome.css";
+import logo from "../Utils/TSF Logo.png";
 
 const TypingText = ({ text, speed = 100 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -29,6 +30,9 @@ const Home = () => {
   return (
     <div className="home-container">
       <main className="home-content">
+        <div className="home-img-container">
+          <img alt="logo" src={logo} />
+        </div>
         <h1><TypingText text={"Welcome to The Sparks Foundation Bank"} speed={50} /></h1>
         <p><TypingText text={"Your Gateway to Financial Innovation and Empowerment"} speed={50} /></p>
         <div className="home-buttons">

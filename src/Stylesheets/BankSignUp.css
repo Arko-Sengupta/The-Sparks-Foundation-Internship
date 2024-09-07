@@ -3,6 +3,7 @@
 /* BankSignup CSS */
 
 .signup-container {
+  padding-bottom: 30px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,11 +14,17 @@
 
 .signup-box {
   background: white;
+  margin-top: 30px;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
   text-align: center;
   width: 450px;
+}
+
+.signup-img-container img {
+  width: 25%;
+  padding-bottom: 4%;
 }
 
 .signup-input-group {
@@ -44,7 +51,7 @@
 
 .signup-box h2 {
   font-family: "Bona Nova SC", serif;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   color: black;
 }
 
@@ -122,6 +129,12 @@
 }
 
 /* Responsive CSS */
+
+@media (max-height: 600px) {
+  .signup-container {
+    height: 120vh;
+  }
+}
 
 @media (max-width: 460px) {
   .signup-box {

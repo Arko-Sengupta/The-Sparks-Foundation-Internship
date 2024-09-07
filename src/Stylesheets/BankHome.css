@@ -22,6 +22,11 @@
   align-items: center;
 }
 
+.home-img-container img {
+  width: 15%;
+  padding-bottom: 2%;
+}
+
 .home-content h1 {
   margin-bottom: 20px;
   font-family: "Bona Nova SC", serif;

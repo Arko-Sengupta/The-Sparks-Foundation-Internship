@@ -20,6 +20,11 @@
   width: 400px;
 }
 
+.login-img-container img {
+  width: 25%;
+  padding-bottom: 4%;
+}
+
 .login-input-group {
   position: relative;
   margin-bottom: 15px;
