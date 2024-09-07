@@ -40,9 +40,6 @@ const Home = () => {
           </Link>
         </div>
       </main>
-      <footer className="home-footer">
-        <span>Copyright © 2022 | Developed by The Sparks Foundation Bank</span>
-      </footer>
     </div>
   );
 }

@@ -195,7 +195,7 @@ const InitiateTransaction = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form data submitted:', formData);
+        console.log('Form Data Submitted:', formData);
     };
 
     return (

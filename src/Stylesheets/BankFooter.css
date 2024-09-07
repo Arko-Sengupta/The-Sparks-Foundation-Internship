@@ -1,0 +1,14 @@
+/* Footer CSS Style */
+
+.footer {
+  padding: 20px;
+  background-color: black;
+  text-align: center;
+}
+
+.footer span {
+  color: white;
+  font-family: "Bona Nova SC", serif;
+  font-size: 16px;
+  font-weight: 500;
+}

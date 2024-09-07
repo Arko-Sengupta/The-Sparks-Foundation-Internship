@@ -85,17 +85,6 @@
   background: rgb(35, 35, 35);
 }
 
-.home-footer {
-  padding: 20px;
-}
-
-.home-footer span {
-  color: black;
-  font-family: "Bona Nova SC", serif;
-  font-size: 16px;
-  font-weight: 500;
-}
-
 /* Responsive CSS */
 
 @media (max-width: 660px) {
