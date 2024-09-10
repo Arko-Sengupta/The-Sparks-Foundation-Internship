@@ -13,12 +13,29 @@
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+  /* Main Container for the Navbar */
+}
+
+.navbar-logo {
+  width: 10%;
+  margin-left: 20px;
+  display: grid;
+  cursor: pointer;
+  /* Styling for the Logo Section */
+}
+
+.navbar-logo .navbar-logo-image {
+  height: 40px;
+  width: auto;
+  justify-self: center;
+  /* Logo Image inside the Navbar */
 }
 
 .navbar-menu {
   display: flex;
   justify-content: center;
   flex-grow: 1;
+  /* Menu Container that grows to fill the Available Space */
 }
 
 .navbar-items {
@@ -26,11 +43,13 @@
   padding: 0;
   margin: 0;
   display: flex;
+  /* Unordered List of Items in the Navbar */
 }
 
 .navbar-item {
-  margin: 0 50px;
+  margin: 0 30px;
   position: relative;
+  /* Single Item in the Navbar */
 }
 
 .navbar-item a {
@@ -41,6 +60,7 @@
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  /* Links inside each Navbar Item */
 }
 
 .navbar-item a::after {
@@ -53,22 +73,26 @@
   background-color: #f29f05;
   transition: width 0.6s ease, left 0.6s ease;
   transform: translateX(0%);
+  /* Hover Underline Animation */
 }
 
 .navbar-item a:hover::after {
   width: 85%;
   left: 15%;
+  /* Animation effect on Hover for the Underline */
 }
 
 .navbar-item a:hover {
   color: #f29f05;
+  /* Change Link color on Hover */
 }
 
 .navbar-icon {
   margin-right: 5px;
+  /* Optional icon spacing inside navbar item */
 }
 
-/* Navbar Toggler */
+/* Navbar Toggler (For Mobile) */
 
 .navbar-toggler {
   display: none;
@@ -76,38 +100,42 @@
   background: none;
   border: none;
   cursor: pointer;
+  /* Toggler button for Mobile Menu */
 }
 
 /* Navbar Mobile Style */
 
-.sidebar {
+.navbar-sidebar {
   width: 250px;
   height: 100%;
   padding: 20px;
   background-color: #171717;
   position: fixed;
   display: flex;
-  transition: right 0.3s ease-in-out;
   flex-direction: column;
   align-items: flex-start;
   top: 0;
   right: -250px;
+  transition: right 0.3s ease-in-out;
   z-index: 1000;
+  /* Sidebar Styling for Mobile Navigation */
 }
 
-.sidebar.active {
+.navbar-sidebar.active {
   right: 0;
+  /* Active state for showing the Sidebar */
 }
 
-.sidebar-hamburger-line {
+.navbar-sidebar-hamburger-line {
   width: 25px;
   height: 3px;
   margin-top: 3px;
   background: white;
   border-radius: 3px;
+  /* Styling for the Hamburger Lines */
 }
 
-.sidebar-close-btn {
+.navbar-sidebar-close-btn {
   font-size: 24px;
   color: #ffffff;
   background: none;
@@ -115,57 +143,112 @@
   margin-bottom: 20px;
   align-self: flex-end;
   cursor: pointer;
+  /* Close button for the Mobile Sidebar */
 }
 
-/* Navbar Right Sidebar Style */
+/* Navbar Right Sidebar Menu Style */
 
-.sidebar-menu {
+.navbar-sidebar-menu {
   list-style: none;
   padding: 0;
   margin: 0;
+  /* Menu inside the Mobile Sidebar */
 }
 
-.sidebar-item {
+.navbar-sidebar-item {
   margin: 15px 10px;
+  /* Individual item inside the Sidebar */
 }
 
-.sidebar-item a {
+.navbar-sidebar-item a {
   font-size: 12px;
   color: #ffffff;
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   text-decoration: none;
+  /* Links inside the Sidebar Items */
 }
 
-/* Navbar Hide */
+/* Navbar Hide Class */
 
 .navbar-menu.hidden {
   display: none;
+  /* Hidden state for the Navbar Menu */
+}
+
+/* Web Logout Button */
+
+.navbar-logout-btn-web {
+  padding: 7px 10px;
+  color: white;
+  background-color: #f29f05;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  /* Styling for the Logout button in the Web View */
+}
+
+.navbar-logout-btn-web:hover {
+  background-color: #f5a819;
+  /* Hover Effect for the Web Logout button */
+}
+
+/* Mobile Logout Button */
+
+.navbar-logout-btn-mobile {
+  width: 35%;
+  padding: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: white;
+  background-color: #f29f05;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  /* Styling for the Logout button in the Mobile View */
+}
+
+.navbar-logout-btn-mobile:hover {
+  background-color: #f5a819;
+  /* Hover Effect for the Mobile Logout button */
 }
 
 /* Navbar Responsive Style */
 
-@media (max-width: 768px) {
+@media (max-width: 878px) {
   .navbar-menu {
     display: none;
+    /* Hide the Main Navbar Menu on Smaller Screens */
   }
 
   .navbar-toggler {
     display: block;
     position: absolute;
     right: 20px;
+    /* Show the Navbar Toggler Button on Smaller Screens */
   }
 }
 
-/* Content Style */
+/* Background Content Style */
 
-.content {
+.background-content {
   min-height: 100vh;
   padding-top: 150px;
   padding-bottom: 6%;
   padding-inline: 20px;
   background-color: #f29f05;
   height: fit-content;
+  /* Styling for the Main Content Section with a Dynamic Background Color */
 }
 
 /* Account Info Style */
@@ -177,6 +260,7 @@
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  /* Container for the Account form with styling for width, padding, and shadow */
 }
 
 .account-form-container h2 {
@@ -185,6 +269,7 @@
   font-size: 30px;
   font-weight: 600;
   text-align: center;
+  /* Heading Style inside the account form Container */
 }
 
 .account-input-group {
@@ -193,6 +278,7 @@
   border-bottom: 2px solid #ddd;
   align-items: center;
   position: relative;
+  /* Input group Container for styling individual Input Fields */
 }
 
 .account-field-icon {
@@ -200,6 +286,7 @@
   margin-right: 10px;
   color: black;
   font-size: 18px;
+  /* Icon Styling within the Input Group */
 }
 
 .account-input-field {
@@ -209,6 +296,7 @@
   background-color: transparent;
   border: none;
   outline: none;
+  /* Input Field Syling for the Account Form */
 }
 
 .account-toggle-password-icon {
@@ -219,6 +307,7 @@
   position: absolute;
   cursor: pointer;
   right: 0;
+  /* Icon for Toggling Password Visibility */
 }
 
 .account-edit-icon {
@@ -228,6 +317,7 @@
   position: absolute;
   cursor: pointer;
   right: 0;
+  /* Icon for Editing Fields in the Account Form */
 }
 
 .account-save-button {
@@ -241,10 +331,191 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  /* Save Button Styling with Transition Effect */
 }
 
 .account-save-button:hover {
   background-color: rgb(35, 35, 35);
+  /* Hover Effect for the Save Button */
+}
+
+/* Transaction History Style */
+
+.transaction-table-container {
+  padding: 20px;
+  background: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  /* Container for the Transaction Table with Styling for padding, background, and shadow */
+}
+
+.transaction-table-container h2 {
+  padding-block: 25px;
+  font-family: "Bona Nova SC", serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  /* Heading Style inside the Transaction Table Container */
+}
+
+.transaction-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  /* Flex Container for Filters with gap and margin */
+}
+
+.transaction-filters div {
+  flex: 1;
+  min-width: 200px;
+  /* Style for Individual Filter Containers */
+}
+
+.transaction-filters label {
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  /* Label Style within the Filters */
+}
+
+.transaction-filters input,
+.transaction-filters select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /* Styling for Input and Select Elements in Filters */
+}
+
+.transaction-filters input[type="number"] {
+  -moz-appearance: textfield;
+  /* Remove Spinner in Number Input for Firefox */
+}
+
+.transaction-filters input[type="number"]::-webkit-inner-spin-button,
+.transaction-filters input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  /* Remove Spinner in Number Input for WebKit Browsers */
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  /* Table Styling for Transactions */
+}
+
+.transaction-table thead {
+  background-color: black;
+  color: #fff;
+  /* Header Styling for the Transaction Table */
+}
+
+.transaction-table th,
+.transaction-table td {
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+  /* Cell Styling for the Transaction Table */
+}
+
+.transaction-table th {
+  font-weight: bold;
+  /* Bold styling for Table Headers */
+}
+
+.transaction-table tbody tr:hover {
+  background-color: #f1f1f1;
+  /* Hover Effect for Table Rows */
+}
+
+.transaction-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Pagination Container Styling */
+}
+
+.transaction-pagination button {
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  /* Button Styling for Pagination Controls */
+}
+
+.transaction-pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  /* Disabled State Styling for Pagination Buttons */
+}
+
+.transaction-pagination span {
+  font-size: 16px;
+  color: #333;
+  /* Styling for Pagination Text */
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .transaction-filters {
+    flex-direction: column;
+  }
+
+  .transaction-filters div {
+    min-width: 100%;
+    /* Responsive design for Filter Containers on Smaller Screens */
+  }
+}
+
+/* Responsive Table */
+
+@media (max-width: 768px) {
+  .transaction-table-container {
+    overflow-x: auto;
+  }
+
+  .transaction-table {
+    min-width: 600px;
+    /* Ensure the Table remains Scrollable on Small Screens */
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    font-size: 14px;
+    padding: 8px;
+    /* Adjust font size and padding for Table Cells on Smaller Screens */
+  }
+
+  .transaction-pagination {
+    flex-direction: column;
+    align-items: flex-start;
+    /* Stack Pagination Controls Vertically on Smaller Screens */
+  }
+
+  .transaction-pagination button {
+    width: 100%;
+    margin-top: 10px;
+    /* Full-width Buttons for Pagination on Small Screens */
+  }
+
+  .transaction-pagination span {
+    margin-bottom: 10px;
+    /* Margin Adjustment for Pagination Text on Small Screens */
+  }
 }
 
 /* Initiate Transaction Style */
@@ -256,6 +527,7 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  /* Form Container with background, border-radius, and shadow */
 }
 
 .initiate-transaction-form h2 {
@@ -264,10 +536,12 @@
   font-size: 30px;
   font-weight: 600;
   text-align: center;
+  /* Heading Style inside the form */
 }
 
 .initiate-transaction-form-group {
   margin-bottom: 15px;
+  /* Margin for each Form Group */
 }
 
 .initiate-transaction-form-group label {
@@ -277,6 +551,7 @@
   font-weight: 600;
   color: black;
   display: block;
+  /* Label Styling within the Form Group */
 }
 
 .initiate-transaction-input-with-icon {
@@ -287,11 +562,13 @@
   border-radius: 4px;
   align-items: center;
   transition: border-color 0.3s ease;
+  /* Container for Input Fields with Icon */
 }
 
 .initiate-transaction-input-with-icon .initiate-transaction-input-icon {
   color: black;
   margin-right: 10px;
+  /* Icon Styling within the Input Container */
 }
 
 .initiate-transaction-input-with-icon input,
@@ -300,11 +577,13 @@
   font-size: 14px;
   border: none;
   outline: none;
+  /* Input and Select field Styling */
 }
 
 .initiate-transaction-input-with-icon input:focus,
 .initiate-transaction-input-with-icon select:focus {
   border-color: black;
+  /* Focus State Styling for Inputs with Icons */
 }
 
 .initiate-transaction-form-group input[type="text"],
@@ -317,6 +596,7 @@
   border-radius: 4px;
   box-sizing: border-box;
   transition: border-color 0.3s ease;
+  /* General Input and Select Field Styling */
 }
 
 .initiate-transaction-form-group input[type="text"]:focus,
@@ -324,6 +604,7 @@
 .initiate-transaction-form-group select:focus {
   border-color: black;
   outline: none;
+  /* Focus State Styling for General Form Fields */
 }
 
 .initiate-transaction-submit-button {
@@ -340,12 +621,30 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
+  /* Submit button Styling */
 }
 
 .initiate-transaction-submit-button .button-icon {
   margin-right: 8px;
+  /* Icon inside the Submit Button */
 }
 
 .initiate-transaction-submit-button:hover {
   background-color: rgb(35, 35, 35);
+  /* Hover State Styling for Submit Button */
+}
+
+/* Logo Style */
+
+.logo-img-container {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Container styling for the logo image */
+}
+
+.logo-img-container img {
+  width: 80px;
+  /* Logo image styling */
 }
