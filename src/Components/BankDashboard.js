@@ -13,7 +13,7 @@ import "../Stylesheets/BankDashboard.css";
 
 
 /**
- * Navbar Component - Displays the Navigation Menu with Options for Account Info, Transaction History, and Initiating Transactions.
+ * Navbar Component - Displays the Navigation Menu with Options for Account Info, Transaction History, and Initiate Transactions.
  */
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
